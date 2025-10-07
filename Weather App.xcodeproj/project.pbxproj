@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB7942DC2E917BAE008BB988 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7942DB2E917BAE008BB988 /* FeedViewController.swift */; };
 		FB7942DF2E917BAE008BB988 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB7942DD2E917BAE008BB988 /* Main.storyboard */; };
 		FB7942F42E917CBD008BB988 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7942F32E917CBD008BB988 /* WeatherManager.swift */; };
 		FB7942F62E917E94008BB988 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7942F52E917E94008BB988 /* WeatherData.swift */; };
 		FB7942F82E9182CE008BB988 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7942F72E9182CE008BB988 /* WeatherModel.swift */; };
 		FB7942FA2E918B18008BB988 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7942F92E918B18008BB988 /* WeatherViewModel.swift */; };
+		FBAB906F2E95107A00237068 /* WeatherFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB906E2E95107A00237068 /* WeatherFeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FB7942D42E917BAE008BB988 /* Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB7942DB2E917BAE008BB988 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FB7942DE2E917BAE008BB988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB7942F32E917CBD008BB988 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		FB7942F52E917E94008BB988 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		FB7942F72E9182CE008BB988 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		FB7942F92E918B18008BB988 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		FBAB906E2E95107A00237068 /* WeatherFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				FB7942DD2E917BAE008BB988 /* Main.storyboard */,
-				FB7942DB2E917BAE008BB988 /* FeedViewController.swift */,
+				FBAB906E2E95107A00237068 /* WeatherFeedViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,9 +186,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB7942DC2E917BAE008BB988 /* FeedViewController.swift in Sources */,
 				FB7942F42E917CBD008BB988 /* WeatherManager.swift in Sources */,
 				FB7942F82E9182CE008BB988 /* WeatherModel.swift in Sources */,
+				FBAB906F2E95107A00237068 /* WeatherFeedViewController.swift in Sources */,
 				FB7942FA2E918B18008BB988 /* WeatherViewModel.swift in Sources */,
 				FB7942F62E917E94008BB988 /* WeatherData.swift in Sources */,
 			);
