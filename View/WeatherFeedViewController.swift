@@ -8,6 +8,8 @@
 import UIKit
 
 class WeatherFeedViewController: UIViewController {
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     
     let weatherViewModel = WeatherViewModel()
     var weatherList: [WeatherModel] = []
@@ -15,7 +17,7 @@ class WeatherFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+       //fetch the cities weather list
         weatherViewModel.onAllDataLoaded = { [weak self] in
             if let weatherList = self?.weatherViewModel.weatherList {
                 print("Feed: \(weatherList)")
@@ -26,7 +28,6 @@ class WeatherFeedViewController: UIViewController {
 
     }
     
-
- 
-
 }
+
+
