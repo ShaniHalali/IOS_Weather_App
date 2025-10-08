@@ -194,6 +194,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="63k-ZU-RdS" eventType="touchUpInside" id="zLM-G8-GDT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ubp-a7-Gds"/>

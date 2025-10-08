@@ -16,6 +16,7 @@
 		FBD60C702E963F0800D4A84E /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD60C6F2E963F0800D4A84E /* CityCell.xib */; };
 		FBD60C712E963F0800D4A84E /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD60C6E2E963F0800D4A84E /* CityCell.swift */; };
 		FBD60C842E96563100D4A84E /* CityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD60C832E96563100D4A84E /* CityWeatherViewController.swift */; };
+		FBD60CA22E96E62A00D4A84E /* CityWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD60CA12E96E62A00D4A84E /* CityWeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		FBD60C6E2E963F0800D4A84E /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		FBD60C6F2E963F0800D4A84E /* CityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
 		FBD60C832E96563100D4A84E /* CityWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherViewController.swift; sourceTree = "<group>"; };
+		FBD60CA12E96E62A00D4A84E /* CityWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				FB7942F92E918B18008BB988 /* WeatherViewModel.swift */,
+				FBD60CA12E96E62A00D4A84E /* CityWeatherViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				FBAB906F2E95107A00237068 /* WeatherFeedViewController.swift in Sources */,
 				FB7942FA2E918B18008BB988 /* WeatherViewModel.swift in Sources */,
 				FB7942F62E917E94008BB988 /* WeatherData.swift in Sources */,
+				FBD60CA22E96E62A00D4A84E /* CityWeatherViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
