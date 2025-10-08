@@ -35,6 +35,14 @@ class WeatherFeedViewController: UIViewController {
 
     }
     
+    //MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToCity"{
+            let destinationVC = segue.destination as? CityWeatherViewController
+            destinationVC?.city = selectedCity
+        }
+    }
+    
 }
 
 
@@ -63,6 +71,7 @@ extension WeatherFeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected cell = \(indexPath.row)")
         selectedCity = fillteredWeatherList[indexPath.row]
+        performSegue(withIdentifier: "goToCity", sender: self)
     }
 }
 
