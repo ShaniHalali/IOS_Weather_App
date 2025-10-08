@@ -50,6 +50,7 @@ extension WeatherFeedViewController: UITableViewDataSource {
         let weatherCell = fillteredWeatherList[indexPath.row]
         cell.cityLabel.text = "\(weatherCell.cityName)"
         cell.tempLabel.text = "\(weatherCell.temperatureString)°C"
+        cell.iconImage.image = UIImage(systemName: weatherCell.conditionName)
        
         return cell
     }

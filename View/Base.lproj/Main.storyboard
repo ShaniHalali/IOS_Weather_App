@@ -71,11 +71,27 @@
                     <connections>
                         <outlet property="searchBar" destination="w25-aa-nrl" id="SL4-GC-cqw"/>
                         <outlet property="tableView" destination="v9a-LT-qq4" id="Dfb-9u-EW9"/>
+                        <segue destination="63k-ZU-RdS" kind="presentation" identifier="goToCity" id="KQS-aH-x7A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2211" y="133"/>
+        </scene>
+        <!--City Weather View Controller-->
+        <scene sceneID="KF8-cW-5Av">
+            <objects>
+                <viewController id="63k-ZU-RdS" customClass="CityWeatherViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="la3-Ju-C3a">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ubp-a7-Gds"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zT7-or-5Xt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1403" y="138"/>
         </scene>
     </scenes>
     <resources>
