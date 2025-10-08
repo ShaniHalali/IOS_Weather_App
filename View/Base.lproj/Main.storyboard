@@ -85,16 +85,183 @@
                     <view key="view" contentMode="scaleToFill" id="la3-Ju-C3a">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpL-dp-TNC">
+                                <rect key="frame" x="25" y="80" width="124" height="45.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Owd-Xs-sWR" userLabel="Card">
+                                <rect key="frame" x="16" y="145.66666666666666" width="361" height="496.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ik-9u-y0B">
+                                        <rect key="frame" x="145" y="15.999999999999996" width="71" height="45.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="25"/>
+                                        </variation>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BHP-D6-hIi" userLabel="Temp Stack">
+                                        <rect key="frame" x="82.666666666666686" y="81.666666666666686" width="196" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56h-WB-8GR">
+                                                <rect key="frame" x="0.0" y="1.6666666666666572" width="128" height="57"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="50"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                                                </variation>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bMO-sH-nMV">
+                                                <rect key="frame" x="136" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="Bce-FR-jdI">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="height" constant="60" id="gMG-g6-z5I">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <variation key="heightClass=compact-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="Bce-FR-jdI"/>
+                                                        <include reference="gMG-g6-z5I"/>
+                                                    </mask>
+                                                </variation>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="JtV-7E-RFg" userLabel="Weather Stack">
+                                        <rect key="frame" x="16" y="191.66666666666663" width="329" height="129"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MIn/Max" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdG-7j-sEO">
+                                                <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="23"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgR-8e-Ubm">
+                                                <rect key="frame" x="0.0" y="53" width="49" height="23"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZW-Vn-JHF">
+                                                <rect key="frame" x="0.0" y="106" width="85.666666666666671" height="23"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <constraints>
+                                    <constraint firstItem="JtV-7E-RFg" firstAttribute="leading" secondItem="Owd-Xs-sWR" secondAttribute="leading" constant="16" id="77t-Cl-kJc">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                    </constraint>
+                                    <constraint firstItem="7Ik-9u-y0B" firstAttribute="centerX" secondItem="Owd-Xs-sWR" secondAttribute="centerX" id="Ab7-VU-vYd"/>
+                                    <constraint firstItem="JtV-7E-RFg" firstAttribute="top" secondItem="BHP-D6-hIi" secondAttribute="bottom" constant="50" id="GdK-a2-RgJ">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                    </constraint>
+                                    <constraint firstItem="BHP-D6-hIi" firstAttribute="top" secondItem="7Ik-9u-y0B" secondAttribute="bottom" constant="20" id="HEW-Uo-g0g">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                    </constraint>
+                                    <constraint firstItem="7Ik-9u-y0B" firstAttribute="top" secondItem="Owd-Xs-sWR" secondAttribute="top" constant="16" id="VhF-m3-b9E"/>
+                                    <constraint firstAttribute="trailing" secondItem="JtV-7E-RFg" secondAttribute="trailing" constant="16" id="alk-bd-D2E">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                    </constraint>
+                                    <constraint firstItem="BHP-D6-hIi" firstAttribute="centerX" secondItem="Owd-Xs-sWR" secondAttribute="centerX" id="kmH-ul-5iK"/>
+                                </constraints>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="HEW-Uo-g0g"/>
+                                        <include reference="alk-bd-D2E"/>
+                                        <include reference="77t-Cl-kJc"/>
+                                        <include reference="GdK-a2-RgJ"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFk-Ln-Y9y">
+                                <rect key="frame" x="80" y="692" width="233" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cg7-nx-zBA"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="63k-ZU-RdS" eventType="touchUpInside" id="zLM-G8-GDT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ubp-a7-Gds"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Owd-Xs-sWR" firstAttribute="leading" secondItem="ubp-a7-Gds" secondAttribute="leading" constant="16" id="0un-2q-GlG">
+                                <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                            </constraint>
+                            <constraint firstItem="aFk-Ln-Y9y" firstAttribute="top" secondItem="Owd-Xs-sWR" secondAttribute="bottom" constant="50" id="7qQ-ae-JG1">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="ubp-a7-Gds" firstAttribute="trailing" secondItem="aFk-Ln-Y9y" secondAttribute="trailing" constant="80" id="HGR-kN-ffp">
+                                <variation key="heightClass=compact-widthClass=compact" constant="200"/>
+                            </constraint>
+                            <constraint firstItem="ubp-a7-Gds" firstAttribute="bottom" secondItem="aFk-Ln-Y9y" secondAttribute="bottom" constant="100" id="Ibh-vA-k0u">
+                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="ubp-a7-Gds" firstAttribute="trailing" secondItem="Owd-Xs-sWR" secondAttribute="trailing" constant="16" id="NGd-E9-m90">
+                                <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                            </constraint>
+                            <constraint firstItem="Owd-Xs-sWR" firstAttribute="top" secondItem="rpL-dp-TNC" secondAttribute="bottom" constant="20" id="Pui-It-u5C">
+                                <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="rpL-dp-TNC" firstAttribute="top" secondItem="ubp-a7-Gds" secondAttribute="top" constant="80" id="fr8-Qs-F7M">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="aFk-Ln-Y9y" firstAttribute="leading" secondItem="ubp-a7-Gds" secondAttribute="leading" constant="80" id="vMu-8c-NLm">
+                                <variation key="heightClass=compact-widthClass=compact" constant="200"/>
+                            </constraint>
+                            <constraint firstItem="rpL-dp-TNC" firstAttribute="leading" secondItem="ubp-a7-Gds" secondAttribute="leading" constant="25" id="w6r-Sr-HJe">
+                                <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="NGd-E9-m90"/>
+                                <include reference="HGR-kN-ffp"/>
+                                <include reference="Ibh-vA-k0u"/>
+                                <include reference="w6r-Sr-HJe"/>
+                                <include reference="fr8-Qs-F7M"/>
+                                <include reference="0un-2q-GlG"/>
+                                <include reference="Pui-It-u5C"/>
+                                <include reference="vMu-8c-NLm"/>
+                                <include reference="7qQ-ae-JG1"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="humidityLabel" destination="kZW-Vn-JHF" id="mhd-eQ-BJB"/>
+                        <outlet property="iconImage" destination="bMO-sH-nMV" id="q3N-bX-xQt"/>
+                        <outlet property="minMaxTempLabel" destination="xdG-7j-sEO" id="G1s-Uk-c5L"/>
+                        <outlet property="nameLabel" destination="7Ik-9u-y0B" id="4Is-Rx-vhc"/>
+                        <outlet property="tempLabel" destination="56h-WB-8GR" id="y91-zi-a6U"/>
+                        <outlet property="windLabel" destination="FgR-8e-Ubm" id="lmM-iJ-EB4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zT7-or-5Xt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1403" y="138"/>
+            <point key="canvasLocation" x="-1403.8167938931297" y="137.32394366197184"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
