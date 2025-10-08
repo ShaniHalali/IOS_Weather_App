@@ -23,6 +23,12 @@ class CityWeatherViewController: UIViewController {
         
         if let cityWeather = city {
             print("selected city in city controller = \(cityWeather)")
+            nameLabel.text = "\(cityWeather.cityName)"
+            tempLabel.text = "\(cityWeather.temperatureString)"
+            iconImage.image = UIImage(systemName: cityWeather.conditionName)
+            minMaxTempLabel.text = "Max/ Min Temp:  \(cityWeather.tempMaxString)°C/\(cityWeather.tempMinString)°C"
+            windLabel.text = "Wind:  \(cityWeather.windSpeed) mph"
+            humidityLabel.text = "Humidity:  \(cityWeather.humidity)%"
         }
 
     }

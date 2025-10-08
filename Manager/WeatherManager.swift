@@ -63,7 +63,7 @@ class WeatherManager {
             //print("Decoded Data Temp : \(temp)")
          
             
-            let weather = WeatherModel(cityName: name, temperature: main.temp, tempMin: main.tempMin, tempMax: main.tempMin, windSpeed: wind.speed, humidity: main.humidity, conditionId: weatherId)
+            let weather = WeatherModel(cityName: name, temperature: main.temp, tempMin: main.tempMin, tempMax: main.tempMax, windSpeed: wind.speed, humidity: main.humidity, conditionId: weatherId)
             //print(weather)
             return weather
             

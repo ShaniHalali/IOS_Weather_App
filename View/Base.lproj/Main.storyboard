@@ -136,23 +136,23 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="JtV-7E-RFg" userLabel="Weather Stack">
-                                        <rect key="frame" x="16" y="191.66666666666663" width="329" height="146"/>
+                                        <rect key="frame" x="16" y="191.66666666666663" width="329" height="129"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MIn/Max" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdG-7j-sEO">
-                                                <rect key="frame" x="0.0" y="0.0" width="108" height="28.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="23"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgR-8e-Ubm">
-                                                <rect key="frame" x="0.0" y="58.666666666666679" width="61" height="28.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="53" width="49" height="23"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZW-Vn-JHF">
-                                                <rect key="frame" x="0.0" y="117.33333333333339" width="107" height="28.666666666666671"/>
-                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="106" width="85.666666666666671" height="23"/>
+                                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
