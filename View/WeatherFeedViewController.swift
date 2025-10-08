@@ -13,7 +13,9 @@ class WeatherFeedViewController: UIViewController {
     
     let weatherViewModel = WeatherViewModel()
     var weatherList: [WeatherModel] = []
-
+    var fillteredWeatherList: [WeatherModel] = []
+    var selectedCity: WeatherModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,11 @@ class WeatherFeedViewController: UIViewController {
         weatherViewModel.onAllDataLoaded = { [weak self] in
             if let weatherList = self?.weatherViewModel.weatherList {
                 print("Feed: \(weatherList)")
+                self?.fillteredWeatherList = weatherList
+                self?.tableView.delegate = self
+                self?.tableView.dataSource = self
+                self?.tableView.register(UINib(nibName: "CityCell", bundle: nil), forCellReuseIdentifier: "cell")
+                self?.tableView.reloadData()
             }
         }
 
@@ -28,6 +35,34 @@ class WeatherFeedViewController: UIViewController {
 
     }
     
+}
+
+
+// MARK: - Tabel view
+extension WeatherFeedViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        fillteredWeatherList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CityCell
+        
+        let weatherCell = fillteredWeatherList[indexPath.row]
+        cell.cityLabel.text = "\(weatherCell.cityName)"
+        cell.tempLabel.text = "\(weatherCell.temperatureString)°C"
+       
+        return cell
+    }
+    
+    
+}
+
+extension WeatherFeedViewController: UITableViewDelegate {
+    // selected cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected cell = \(indexPath.row)")
+        selectedCity = fillteredWeatherList[indexPath.row]
+    }
 }
 
 
