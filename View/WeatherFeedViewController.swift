@@ -31,7 +31,6 @@ class WeatherFeedViewController: UIViewController {
             }
         }
 
-        weatherViewModel.fetchAllWeathersModels()
 
     }
     
