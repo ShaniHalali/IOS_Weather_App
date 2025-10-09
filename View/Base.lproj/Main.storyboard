@@ -43,7 +43,15 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="w25-aa-nrl" firstAttribute="top" secondItem="AC9-P8-U8j" secondAttribute="bottom" symbolic="YES" id="ELv-7e-MFH"/>
+                                </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="cfj-ZW-rAS">
+                                <rect key="frame" x="16" y="407" width="361" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="systemBackgroundColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
@@ -70,7 +78,9 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="w25-aa-nrl" id="SL4-GC-cqw"/>
+                        <outlet property="spinner" destination="cfj-ZW-rAS" id="1Mg-th-28p"/>
                         <outlet property="tableView" destination="v9a-LT-qq4" id="Dfb-9u-EW9"/>
+                        <outlet property="titleLabel" destination="AC9-P8-U8j" id="0M7-4N-0K5"/>
                         <segue destination="63k-ZU-RdS" kind="presentation" identifier="goToCity" id="KQS-aH-x7A"/>
                     </connections>
                 </viewController>

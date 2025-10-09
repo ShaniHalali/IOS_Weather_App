@@ -10,28 +10,53 @@ import UIKit
 class WeatherFeedViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     let weatherViewModel = WeatherViewModel()
     var weatherList: [WeatherModel] = []
     var fillteredWeatherList: [WeatherModel] = []
     var selectedCity: WeatherModel?
     
+    var isLoading = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       //fetch the cities weather list
+        
+        toggleLoadingState(isLoading: isLoading)
+        
+        //fetch the cities weather list
         weatherViewModel.onAllDataLoaded = { [weak self] in
             if let weatherList = self?.weatherViewModel.weatherList {
                 print("Feed: \(weatherList)")
                 self?.fillteredWeatherList = weatherList
+                
+                // data loaded
+                self?.isLoading = false
+                self?.toggleLoadingState(isLoading: self!.isLoading)
+                
                 self?.tableView.delegate = self
                 self?.tableView.dataSource = self
                 self?.tableView.register(UINib(nibName: "CityCell", bundle: nil), forCellReuseIdentifier: "cell")
                 self?.tableView.reloadData()
             }
         }
-
-
+        
+        
+    }
+    
+    func toggleLoadingState(isLoading: Bool) {
+        titleLabel.isHidden = isLoading
+        searchBar.isHidden = isLoading
+        tableView.isHidden = isLoading
+        
+        if isLoading {
+            spinner.startAnimating()
+        } else {
+            spinner.stopAnimating()
+            spinner.isHidden = isLoading
+        }
     }
     
     //MARK: - Segue
@@ -58,7 +83,7 @@ extension WeatherFeedViewController: UITableViewDataSource {
         cell.cityLabel.text = "\(weatherCell.cityName)"
         cell.tempLabel.text = "\(weatherCell.temperatureString)°C"
         cell.iconImage.image = UIImage(systemName: weatherCell.conditionName)
-       
+        
         return cell
     }
     
