@@ -7,17 +7,35 @@
 
 import Foundation
 
-class CityWeatherViewModel: WeatherManagerDelegate {
-    
+class CityWeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
+   
     private let weatherManager = WeatherManager()
     var onCityDataLoaded: ( (WeatherModel) -> Void )?
+    private let networkingMonitor = NetworkMonitor()
+    private var connection = false
     
     init() {
         weatherManager.delegate = self
+        networkingMonitor.delegate = self
+        networkingMonitor.startMonitoring()
+        
+    }
+    
+    func didChangeConnectionStatus(isConnected: Bool) {
+        if isConnected {
+            print("city weather view model = internet connection works ")
+        } else {
+            print("city weather view model = No internet connection")
+        }
+        connection = isConnected
     }
     
     func fetchCityWeather(cityName: String) {
-        weatherManager.fetchCityWeather(cityName: cityName)
+        if connection {
+            weatherManager.fetchCityWeather(cityName: cityName)
+        } else {
+            print("city weather view model = can't fetch city weather")
+        }
     }
     
     func didUpdateWeather(weather: WeatherModel) {

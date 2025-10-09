@@ -19,15 +19,20 @@ class CityWeatherViewController: UIViewController {
     
     var city: WeatherModel?
     let cityWeatherViewModel = CityWeatherViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // closure for refresh data
+        cityWeatherViewModel.onCityDataLoaded = {[weak self] cityWeather in
+            self?.displayCityWeatherDetails(cityWeather: cityWeather)
+            print("refresh city weather data = \(cityWeather)")
+        }
         
         if let cityWeather = city {
             print("selected city in city controller = \(cityWeather)")
             self.displayCityWeatherDetails(cityWeather: cityWeather)
         }
-
+        
     }
     
     func displayCityWeatherDetails(cityWeather: WeatherModel){
@@ -42,15 +47,12 @@ class CityWeatherViewController: UIViewController {
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
         if let cityName = city?.cityName {
             cityWeatherViewModel.fetchCityWeather(cityName: cityName )
-            cityWeatherViewModel.onCityDataLoaded = {[weak self] cityWeather in
-                self?.displayCityWeatherDetails(cityWeather: cityWeather)
-                print("refresh city weather data = \(cityWeather)")
-            }
-
+         
+            
         }
         
     }
     
     
-
+    
 }
