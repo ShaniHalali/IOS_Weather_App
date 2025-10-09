@@ -218,6 +218,14 @@
                                     <action selector="refreshButtonPressed:" destination="63k-ZU-RdS" eventType="touchUpInside" id="zLM-G8-GDT"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="xDg-PR-cPO">
+                                <rect key="frame" x="146.66666666666666" y="371" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="7Wm-Jb-Jq0"/>
+                                    <constraint firstAttribute="height" constant="100" id="brd-tA-8QP"/>
+                                </constraints>
+                                <color key="color" systemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ubp-a7-Gds"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -234,6 +242,7 @@
                             <constraint firstItem="ubp-a7-Gds" firstAttribute="bottom" secondItem="aFk-Ln-Y9y" secondAttribute="bottom" constant="100" id="Ibh-vA-k0u">
                                 <variation key="heightClass=compact-widthClass=compact" constant="20"/>
                             </constraint>
+                            <constraint firstItem="xDg-PR-cPO" firstAttribute="centerX" secondItem="la3-Ju-C3a" secondAttribute="centerX" id="Ldh-Uq-sCH"/>
                             <constraint firstItem="ubp-a7-Gds" firstAttribute="trailing" secondItem="Owd-Xs-sWR" secondAttribute="trailing" constant="16" id="NGd-E9-m90">
                                 <variation key="heightClass=compact-widthClass=compact" constant="50"/>
                             </constraint>
@@ -243,6 +252,7 @@
                             <constraint firstItem="rpL-dp-TNC" firstAttribute="top" secondItem="ubp-a7-Gds" secondAttribute="top" constant="80" id="fr8-Qs-F7M">
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                             </constraint>
+                            <constraint firstItem="xDg-PR-cPO" firstAttribute="centerY" secondItem="la3-Ju-C3a" secondAttribute="centerY" id="nTF-Ji-SZE"/>
                             <constraint firstItem="aFk-Ln-Y9y" firstAttribute="leading" secondItem="ubp-a7-Gds" secondAttribute="leading" constant="80" id="vMu-8c-NLm">
                                 <variation key="heightClass=compact-widthClass=compact" constant="200"/>
                             </constraint>
@@ -269,6 +279,7 @@
                         <outlet property="iconImage" destination="bMO-sH-nMV" id="q3N-bX-xQt"/>
                         <outlet property="minMaxTempLabel" destination="xdG-7j-sEO" id="G1s-Uk-c5L"/>
                         <outlet property="nameLabel" destination="7Ik-9u-y0B" id="4Is-Rx-vhc"/>
+                        <outlet property="spinner" destination="xDg-PR-cPO" id="G4B-2C-1zO"/>
                         <outlet property="tempLabel" destination="56h-WB-8GR" id="y91-zi-a6U"/>
                         <outlet property="windLabel" destination="FgR-8e-Ubm" id="lmM-iJ-EB4"/>
                     </connections>
@@ -279,6 +290,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
