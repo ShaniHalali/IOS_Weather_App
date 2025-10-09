@@ -46,11 +46,19 @@
                                 <constraints>
                                     <constraint firstItem="w25-aa-nrl" firstAttribute="top" secondItem="AC9-P8-U8j" secondAttribute="bottom" symbolic="YES" id="ELv-7e-MFH"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ELv-7e-MFH"/>
+                                    </mask>
+                                </variation>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="cfj-ZW-rAS">
-                                <rect key="frame" x="16" y="407" width="361" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" systemColor="systemBackgroundColor"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="7GE-ti-7Ly">
+                                <rect key="frame" x="146.66666666666666" y="376" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="dFw-QF-yrL"/>
+                                    <constraint firstAttribute="height" constant="100" id="dSe-cH-1TM"/>
+                                </constraints>
+                                <color key="color" systemColor="systemGray6Color"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -64,6 +72,8 @@
                             </constraint>
                             <constraint firstItem="74Y-ft-YOg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Rye-Xy-UV9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="74Y-ft-YOg" secondAttribute="trailing" constant="16" id="aCL-oq-WRN"/>
+                            <constraint firstItem="7GE-ti-7Ly" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jrZ-a3-nV2"/>
+                            <constraint firstItem="7GE-ti-7Ly" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tK8-UL-XuD"/>
                         </constraints>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
@@ -78,7 +88,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="w25-aa-nrl" id="SL4-GC-cqw"/>
-                        <outlet property="spinner" destination="cfj-ZW-rAS" id="1Mg-th-28p"/>
+                        <outlet property="spinner" destination="7GE-ti-7Ly" id="TnR-c6-iPP"/>
                         <outlet property="tableView" destination="v9a-LT-qq4" id="Dfb-9u-EW9"/>
                         <outlet property="titleLabel" destination="AC9-P8-U8j" id="0M7-4N-0K5"/>
                         <segue destination="63k-ZU-RdS" kind="presentation" identifier="goToCity" id="KQS-aH-x7A"/>
@@ -277,6 +287,9 @@
         </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

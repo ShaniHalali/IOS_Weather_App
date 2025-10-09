@@ -10,8 +10,8 @@ import UIKit
 class WeatherFeedViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     let weatherViewModel = WeatherViewModel()
     var weatherList: [WeatherModel] = []
@@ -55,7 +55,7 @@ class WeatherFeedViewController: UIViewController {
             spinner.startAnimating()
         } else {
             spinner.stopAnimating()
-            spinner.isHidden = isLoading
+            spinner.isHidden = true
         }
     }
     
