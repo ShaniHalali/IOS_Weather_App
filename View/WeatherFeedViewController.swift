@@ -19,12 +19,26 @@ class WeatherFeedViewController: UIViewController {
     var selectedCity: WeatherModel?
     
     var isLoading = true
+    let alertManager = AlertManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         toggleLoadingState(isLoading: isLoading)
+        
+        //No Internet connection listener
+        
+        weatherViewModel.noInternetConnection = { [weak self] in
+            print("Alert no internet connection in WeatherFeedController")
+            DispatchQueue.main.async {
+                self?.spinner.isHidden = true
+                self?.alertManager.showNoInternetAlert(viewController: self!)
+            }
+            
+        }
+        weatherViewModel.startMonitoring()
+    
         
         //fetch the cities weather list
         weatherViewModel.onAllDataLoaded = { [weak self] in
@@ -43,6 +57,7 @@ class WeatherFeedViewController: UIViewController {
             }
         }
         
+     
         
     }
     

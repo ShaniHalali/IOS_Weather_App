@@ -16,6 +16,7 @@ class WeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
     private(set) var weatherList: [WeatherModel] = []
     private let group = DispatchGroup()
     var onAllDataLoaded: ( () -> Void )?
+    var noInternetConnection: ( () -> Void )?
     
     private let networkMonitor = NetworkMonitor()
     private var hasFetch = false
@@ -23,10 +24,13 @@ class WeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
     init() {
         weatherManger.delegate = self
         networkMonitor.delegate = self
-        networkMonitor.startMonitoring()
-        
-        
     }
+    
+    func startMonitoring() {
+        networkMonitor.startMonitoring()
+
+    }
+    
     func didChangeConnectionStatus(isConnected: Bool) {
         if isConnected && !hasFetch {
             print("weather view model = internet connection works ")
@@ -34,8 +38,10 @@ class WeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
             fetchAllWeathersModels()
         } else if !isConnected {
             print("weather view model = No internet connection")
+            noInternetConnection?()
         }
     }
+
     
     func fetchAllWeathersModels() {
        

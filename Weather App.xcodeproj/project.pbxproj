@@ -18,6 +18,7 @@
 		FBD60C842E96563100D4A84E /* CityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD60C832E96563100D4A84E /* CityWeatherViewController.swift */; };
 		FBD60CA22E96E62A00D4A84E /* CityWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD60CA12E96E62A00D4A84E /* CityWeatherViewModel.swift */; };
 		FBD60CCE2E97972300D4A84E /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD60CCD2E97972300D4A84E /* NetworkMonitor.swift */; };
+		FBD60CD02E98FBA700D4A84E /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD60CCF2E98FBA700D4A84E /* AlertManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		FBD60C832E96563100D4A84E /* CityWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherViewController.swift; sourceTree = "<group>"; };
 		FBD60CA12E96E62A00D4A84E /* CityWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherViewModel.swift; sourceTree = "<group>"; };
 		FBD60CCD2E97972300D4A84E /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		FBD60CCF2E98FBA700D4A84E /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -122,6 +124,7 @@
 			children = (
 				FB7942F32E917CBD008BB988 /* WeatherManager.swift */,
 				FBD60CCD2E97972300D4A84E /* NetworkMonitor.swift */,
+				FBD60CCF2E98FBA700D4A84E /* AlertManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			files = (
 				FBD60CCE2E97972300D4A84E /* NetworkMonitor.swift in Sources */,
 				FBD60C842E96563100D4A84E /* CityWeatherViewController.swift in Sources */,
+				FBD60CD02E98FBA700D4A84E /* AlertManager.swift in Sources */,
 				FB7942F42E917CBD008BB988 /* WeatherManager.swift in Sources */,
 				FB7942F82E9182CE008BB988 /* WeatherModel.swift in Sources */,
 				FBD60C712E963F0800D4A84E /* CityCell.swift in Sources */,
