@@ -68,6 +68,7 @@ class CityWeatherViewController: UIViewController {
         humidityLabel.isHidden = isLoading
 
         if isLoading {
+            spinner.isHidden = false
             spinner.startAnimating()
         } else {
             spinner.stopAnimating()
