@@ -17,4 +17,6 @@ class AlertManager {
         alert.addAction(okButton)
         viewController.present(alert,animated: true)
     }
+    
+    
 }

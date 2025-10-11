@@ -35,6 +35,7 @@ class WeatherFeedViewController: UIViewController {
                 self?.spinner.isHidden = true
                 self?.alertManager.showNoInternetAlert(viewController: self!)
             }
+            // after ok button - neet to present the weather list from weather Model - that fill with the data from the core data
             
         }
         weatherViewModel.startMonitoring()

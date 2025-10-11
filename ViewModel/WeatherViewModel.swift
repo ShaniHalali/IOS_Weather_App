@@ -20,6 +20,8 @@ class WeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
     
     private let networkMonitor = NetworkMonitor()
     private var hasFetch = false
+    
+    let coreData = CoreDataManager()
 
     init() {
         weatherManger.delegate = self
@@ -39,6 +41,13 @@ class WeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
         } else if !isConnected {
             print("weather view model = No internet connection")
             noInternetConnection?()
+            if let weatherDataList = coreData.loadWeatherDataList() {
+                weatherList = weatherDataList
+                print("List from core data")
+
+            } else {
+                print("No saved weather in core data")
+            }
         }
     }
 
@@ -63,6 +72,8 @@ class WeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
             self?.weatherList.append(weather)
             print("appended to weather data list: \(weather.cityName)")
             self?.group.leave()
+            //save the weatherList in core data
+            self?.coreData.saveWeatherCityData(weather: weather)
         }
        
       
