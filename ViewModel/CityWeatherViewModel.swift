@@ -14,12 +14,18 @@ class CityWeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
     private let networkingMonitor = NetworkMonitor()
     private var connection = false
     
+    private var hasFetch = false
+    let coreData = CoreDataManager()
+    
+
     init() {
         weatherManager.delegate = self
         networkingMonitor.delegate = self
         networkingMonitor.startMonitoring()
+
         
     }
+  
     
     func didChangeConnectionStatus(isConnected: Bool) {
         if isConnected {
@@ -35,6 +41,13 @@ class CityWeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
             weatherManager.fetchCityWeather(cityName: cityName)
         } else {
             print("city weather view model = can't fetch city weather")
+            //load saved city details
+            if let city = coreData.loadCityData(cityName: cityName) {
+                onCityDataLoaded?(city)
+                print("city saved data = \(city) ")
+            } else {
+                print("no saved city data for - \(cityName)")
+            }
         }
     }
     

@@ -97,6 +97,21 @@ class CoreDataManager {
         return nil
     }
     
+    func loadCityData(cityName: String) -> WeatherModel? {
+        let request: NSFetchRequest<WeatherEntity> = WeatherEntity.fetchRequest()
+        do{
+            let weatherEntityList = try context.fetch(request)
+            
+            let citiesList = convertEntityListToModelList(weatherEntityList: weatherEntityList)
+            return citiesList.first(where: {$0.cityName == cityName})
+
+            
+        } catch {
+            print("Error fetching city data from context \(error)")
+        }
+        return nil
+    }
+    
     private func convertEntityListToModelList(weatherEntityList: [WeatherEntity]) -> [WeatherModel] {
         var weatherModelList: [WeatherModel] = []
         
