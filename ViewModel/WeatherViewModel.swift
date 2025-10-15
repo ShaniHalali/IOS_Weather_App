@@ -22,6 +22,7 @@ class WeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
     private var hasFetch = false
     
     let coreData = CoreDataManager()
+    var onAllSavedDataLoaded: (() -> Void )?
 
     init() {
         weatherManger.delegate = self
@@ -43,8 +44,9 @@ class WeatherViewModel: WeatherManagerDelegate, NetworkMonitorDelegate {
             noInternetConnection?()
             if let weatherDataList = coreData.loadWeatherDataList() {
                 weatherList = weatherDataList
-                print("List from core data")
-
+                print("List from core data = \(weatherList)")
+                onAllSavedDataLoaded?()
+                
             } else {
                 print("No saved weather in core data")
             }

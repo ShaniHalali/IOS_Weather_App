@@ -35,44 +35,70 @@ class WeatherFeedViewController: UIViewController {
                 self?.spinner.isHidden = true
                 self?.alertManager.showNoInternetAlert(viewController: self!)
             }
-            // after ok button - neet to present the weather list from weather Model - that fill with the data from the core data
+            //display the weather list from weather Model - that fill with the data from the core data
+            
+            self?.weatherViewModel.onAllSavedDataLoaded = { [weak self] in
+                
+                if let savedWeatherList = self?.weatherViewModel.weatherList {
+                    if !savedWeatherList.isEmpty {
+                        self?.fillteredWeatherList = savedWeatherList
+                        self?.loadTableView ()
+                        
+                    } else {
+                        //no saved data in core data
+                        self?.alertManager.showNoSavedDataAlert(viewController: self!)
+                    }
+                   
+                   
+                }
+                
+            }
             
         }
         weatherViewModel.startMonitoring()
-    
         
-        //fetch the cities weather list
+        
+        //fetch the cities weather list - online mode
         weatherViewModel.onAllDataLoaded = { [weak self] in
             if let weatherList = self?.weatherViewModel.weatherList {
                 print("Feed: \(weatherList)")
                 self?.fillteredWeatherList = weatherList
-                
-                // data loaded
-                self?.isLoading = false
-                self?.toggleLoadingState(isLoading: self!.isLoading)
-                
-                self?.tableView.delegate = self
-                self?.tableView.dataSource = self
-                self?.tableView.register(UINib(nibName: "CityCell", bundle: nil), forCellReuseIdentifier: "cell")
-                self?.tableView.reloadData()
+              
+                self?.loadTableView ()
             }
         }
         
-     
+        
         
     }
     
-    func toggleLoadingState(isLoading: Bool) {
-        titleLabel.isHidden = isLoading
-        searchBar.isHidden = isLoading
-        tableView.isHidden = isLoading
-        
-        if isLoading {
-            spinner.startAnimating()
-        } else {
-            spinner.stopAnimating()
-            spinner.isHidden = true
+    func loadTableView () {
+        self.isLoading = false
+        self.toggleLoadingState(isLoading: self.isLoading)
+        DispatchQueue.main.async {
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.tableView.register(UINib(nibName: "CityCell", bundle: nil), forCellReuseIdentifier: "cell")
+            self.tableView.reloadData()
         }
+       
+    }
+    
+    func toggleLoadingState(isLoading: Bool) {
+        DispatchQueue.main.async {
+            self.titleLabel.isHidden = isLoading
+            self.searchBar.isHidden = isLoading
+            self.tableView.isHidden = isLoading
+            
+            if isLoading {
+                self.spinner.startAnimating()
+            } else {
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+            }
+            
+        }
+        
     }
     
     //MARK: - Segue

@@ -18,5 +18,13 @@ class AlertManager {
         viewController.present(alert,animated: true)
     }
     
+    func showNoSavedDataAlert(viewController: UIViewController) {
+        let alert = UIAlertController(title: "No Saved Data", message: "", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okButton)
+        viewController.present(alert,animated: true)
+    }
+    
     
 }
