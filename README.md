@@ -71,7 +71,7 @@ This structure makes the code modular, testable, and easy to maintain.
 | Parallel Fetch | **DispatchGroup** | Ensures all cities load together before updating UI |
 | Offline Mode | **Core Data + NetworkMonitor** | Provides a seamless offline experience |
 
-## Development Workflow
+## 👩🏻‍💻 Development Workflow
 
 Throughout the development process, the project was managed using Git and a clear branching strategy:
 
@@ -88,13 +88,13 @@ Throughout the development process, the project was managed using Git and a clea
 
 This approach ensured clean version control, easy testing, and a stable final build.
 
-##  Installation
+## 🚀 Installation
 
 Just clone the repository and run it - no extra setup required.
 
 ```bash
-git clone https://github.com/YourUsername/Weather-App.git
-cd Weather-App
+git clone https://github.com/ShaniHalali/IOS_Weather_App.git
+cd IOS_Weather_App
 open WeatherApp.xcodeproj
 ```
 
