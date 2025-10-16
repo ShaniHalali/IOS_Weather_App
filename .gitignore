@@ -1,0 +1,17 @@
+# Xcode project files
+*.xcworkspace
+xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+
+# macOS system files
+.DS_Store
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# Logs
+*.log
+
