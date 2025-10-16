@@ -17,6 +17,7 @@ class CityWeatherViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
+    @IBOutlet weak var cardView: UIView!
     
     var city: WeatherModel?
     let cityWeatherViewModel = CityWeatherViewModel()
@@ -24,6 +25,9 @@ class CityWeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //round corners for card view
+        cardView.layer.cornerRadius = cardView.frame.size.height / 6
+
         
         // closure for refresh data
         cityWeatherViewModel.onCityDataLoaded = {[weak self] cityWeather in
