@@ -41,15 +41,15 @@ class WeatherFeedViewController: UIViewController {
                 
                 if let savedWeatherList = self?.weatherViewModel.weatherList {
                     if !savedWeatherList.isEmpty {
-                        self?.fillteredWeatherList = savedWeatherList
+                        self?.weatherList = savedWeatherList
                         self?.loadTableView ()
                         
                     } else {
                         //no saved data in core data
                         self?.alertManager.showNoSavedDataAlert(viewController: self!)
                     }
-                   
-                   
+                    
+                    
                 }
                 
             }
@@ -62,8 +62,8 @@ class WeatherFeedViewController: UIViewController {
         weatherViewModel.onAllDataLoaded = { [weak self] in
             if let weatherList = self?.weatherViewModel.weatherList {
                 print("Feed: \(weatherList)")
-                self?.fillteredWeatherList = weatherList
-              
+                self?.weatherList = weatherList
+                
                 self?.loadTableView ()
             }
         }
@@ -73,6 +73,7 @@ class WeatherFeedViewController: UIViewController {
     }
     
     func loadTableView () {
+        fillteredWeatherList = weatherList
         self.isLoading = false
         self.toggleLoadingState(isLoading: self.isLoading)
         DispatchQueue.main.async {
@@ -81,7 +82,7 @@ class WeatherFeedViewController: UIViewController {
             self.tableView.register(UINib(nibName: "CityCell", bundle: nil), forCellReuseIdentifier: "cell")
             self.tableView.reloadData()
         }
-       
+        
     }
     
     func toggleLoadingState(isLoading: Bool) {
@@ -138,6 +139,34 @@ extension WeatherFeedViewController: UITableViewDelegate {
         print("selected cell = \(indexPath.row)")
         selectedCity = fillteredWeatherList[indexPath.row]
         performSegue(withIdentifier: "goToCity", sender: self)
+    }
+}
+
+// MARK: Search bar
+extension WeatherFeedViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("search text = \(String(describing: searchBar.text))")
+        
+        let searchText = searchBar.text
+        
+        // search by city name
+        if searchText != "" {
+            if let city = fillteredWeatherList.first(where: {$0.cityName == searchText}) {
+                fillteredWeatherList = [city]
+                tableView.reloadData()
+            } else {
+                // no city match to the search text
+                alertManager.showNoCityFoundAlert(viewController: self)
+                searchBar.text = ""
+                fillteredWeatherList = weatherList
+                tableView.reloadData()
+            }
+        } else {
+            // empty search text
+            alertManager.showEmptyTextAlert(viewController: self)
+            fillteredWeatherList = weatherList
+            tableView.reloadData()
+        }
     }
 }
 
