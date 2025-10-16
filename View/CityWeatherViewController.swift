@@ -15,22 +15,34 @@ class CityWeatherViewController: UIViewController {
     @IBOutlet weak var minMaxTempLabel: UILabel!
     @IBOutlet weak var windLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     
     var city: WeatherModel?
     let cityWeatherViewModel = CityWeatherViewModel()
-
+    var isLoading = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // closure for refresh data
+        cityWeatherViewModel.onCityDataLoaded = {[weak self] cityWeather in
+            self?.displayCityWeatherDetails(cityWeather: cityWeather)
+            print("refresh city weather data = \(cityWeather)")
+        }
+        
+    
         if let cityWeather = city {
             print("selected city in city controller = \(cityWeather)")
             self.displayCityWeatherDetails(cityWeather: cityWeather)
         }
-
+        
     }
     
     func displayCityWeatherDetails(cityWeather: WeatherModel){
+        isLoading = false
+        toggleLoadingState(isLoading: isLoading)
+        
         nameLabel.text = "\(cityWeather.cityName)"
         tempLabel.text = "\(cityWeather.temperatureString)"
         iconImage.image = UIImage(systemName: cityWeather.conditionName)
@@ -40,17 +52,33 @@ class CityWeatherViewController: UIViewController {
     }
     
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
+        isLoading = true
+        toggleLoadingState(isLoading: isLoading)
+        
         if let cityName = city?.cityName {
             cityWeatherViewModel.fetchCityWeather(cityName: cityName )
-            cityWeatherViewModel.onCityDataLoaded = {[weak self] cityWeather in
-                self?.displayCityWeatherDetails(cityWeather: cityWeather)
-                print("refresh city weather data = \(cityWeather)")
-            }
-
+         
+            
         }
         
     }
     
-    
+    func toggleLoadingState(isLoading: Bool) {
+        tempLabel.isHidden = isLoading
+        iconImage.isHidden = isLoading
+        minMaxTempLabel.isHidden = isLoading
+        windLabel.isHidden = isLoading
+        humidityLabel.isHidden = isLoading
 
+        if isLoading {
+            spinner.isHidden = false
+            spinner.startAnimating()
+        } else {
+            spinner.stopAnimating()
+            spinner.isHidden = true
+        }
+    }
+    
+    
+    
 }

@@ -10,29 +10,95 @@ import UIKit
 class WeatherFeedViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     let weatherViewModel = WeatherViewModel()
     var weatherList: [WeatherModel] = []
     var fillteredWeatherList: [WeatherModel] = []
     var selectedCity: WeatherModel?
     
+    var isLoading = true
+    let alertManager = AlertManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       //fetch the cities weather list
+        
+        toggleLoadingState(isLoading: isLoading)
+        
+        //No Internet connection listener
+        
+        weatherViewModel.noInternetConnection = { [weak self] in
+            print("Alert no internet connection in WeatherFeedController")
+            DispatchQueue.main.async {
+                self?.spinner.isHidden = true
+                self?.alertManager.showNoInternetAlert(viewController: self!)
+            }
+            //display the weather list from weather Model - that fill with the data from the core data
+            
+            self?.weatherViewModel.onAllSavedDataLoaded = { [weak self] in
+                
+                if let savedWeatherList = self?.weatherViewModel.weatherList {
+                    if !savedWeatherList.isEmpty {
+                        self?.fillteredWeatherList = savedWeatherList
+                        self?.loadTableView ()
+                        
+                    } else {
+                        //no saved data in core data
+                        self?.alertManager.showNoSavedDataAlert(viewController: self!)
+                    }
+                   
+                   
+                }
+                
+            }
+            
+        }
+        weatherViewModel.startMonitoring()
+        
+        
+        //fetch the cities weather list - online mode
         weatherViewModel.onAllDataLoaded = { [weak self] in
             if let weatherList = self?.weatherViewModel.weatherList {
                 print("Feed: \(weatherList)")
                 self?.fillteredWeatherList = weatherList
-                self?.tableView.delegate = self
-                self?.tableView.dataSource = self
-                self?.tableView.register(UINib(nibName: "CityCell", bundle: nil), forCellReuseIdentifier: "cell")
-                self?.tableView.reloadData()
+              
+                self?.loadTableView ()
             }
         }
-
-        weatherViewModel.fetchAllWeathersModels()
-
+        
+        
+        
+    }
+    
+    func loadTableView () {
+        self.isLoading = false
+        self.toggleLoadingState(isLoading: self.isLoading)
+        DispatchQueue.main.async {
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.tableView.register(UINib(nibName: "CityCell", bundle: nil), forCellReuseIdentifier: "cell")
+            self.tableView.reloadData()
+        }
+       
+    }
+    
+    func toggleLoadingState(isLoading: Bool) {
+        DispatchQueue.main.async {
+            self.titleLabel.isHidden = isLoading
+            self.searchBar.isHidden = isLoading
+            self.tableView.isHidden = isLoading
+            
+            if isLoading {
+                self.spinner.startAnimating()
+            } else {
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+            }
+            
+        }
+        
     }
     
     //MARK: - Segue
@@ -59,7 +125,7 @@ extension WeatherFeedViewController: UITableViewDataSource {
         cell.cityLabel.text = "\(weatherCell.cityName)"
         cell.tempLabel.text = "\(weatherCell.temperatureString)°C"
         cell.iconImage.image = UIImage(systemName: weatherCell.conditionName)
-       
+        
         return cell
     }
     
